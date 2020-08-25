@@ -7,7 +7,7 @@ const parseCookies = (cookie = '') =>
     cookie
         .split(';')
         .map(v => v.split('='))
-        .map(([k, ... vs]) => [k, vs.join('=')])
+        .map(([k, ...vs]) => [k, vs.join('=')])
         .reduce((acc, [k, v]) => {
             acc[k.trim()] = decodeURIComponent(v);
             return acc;
@@ -22,7 +22,7 @@ http.createServer((req,res) => {
         expires.setMinutes(expires.getMinutes() + 5);
         res.writeHead(302, {
             Location: '/',
-            'Set-Cookie' : 'name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path=/',
+            'Set-Cookie': 'name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path=/',
         });
         res.end();
     } else if (cookies.name) {
