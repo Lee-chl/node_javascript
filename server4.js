@@ -8,7 +8,7 @@ const parseCookies = (cookie = '') =>
         .split(';')
         .map(v => v.split('='))
         .map(([k, ...vs]) => [k, vs.join('=')])
-        .reduce((acc, [k, v]) => {
+        .reduce((acc,[k,v]) => {
             acc[k.trim()] = decodeURIComponent(v);
             return acc;
         },{});
@@ -19,17 +19,17 @@ http.createServer((req,res) => {
         const { query } = url.parse(req.url);
         const { name } = qs.parse(query);
         const expires = new Date();
-        expires.setMinutes(expires.getMinutes() + 5);
+        expires.setMinutes(expires.getMinutes() + 5 );
         res.writeHead(302, {
             Location: '/',
-            'Set-Cookie': 'name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path=/',
+            'Set-Cookie' : `name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path:/`,
         });
         res.end();
     } else if (cookies.name) {
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
-        res.end('${cookies.name}님 안녕하세요');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8 '});
+        res.end(`${cookies.name}님 안녕하세요`);
     } else {
-        fs.readFile('./server4.html', (err,data) => {
+        fs.readFile('./server4.html',(err,data) => {
             if (err){
                 throw err;
             }
@@ -38,5 +38,5 @@ http.createServer((req,res) => {
     }
 })
     .listen(8083, () => {
-        console.log('8083번 포트에서 서버 대기 중');
+        console.log('8083번 포트에서 서버 대기중');
     });
