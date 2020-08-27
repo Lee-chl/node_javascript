@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lee-chl/node_javascript/issues"
   },
-  "homepage": "https://github.com/Lee-chl/node_javascript#readme"
+  "homepage": "https://github.com/Lee-chl/node_javascript#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
