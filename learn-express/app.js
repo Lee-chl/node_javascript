@@ -42,6 +42,18 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+
+  //express-session
+  app.use(cookieParser('secret code'));
+  app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: 'secret code',
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  }));
 });
 
 module.exports = app;
