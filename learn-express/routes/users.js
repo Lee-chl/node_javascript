@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/',function(req,res,next){
+router.get('/flash',function(req,res){
   req.session.message='세션 메시지';
   req.flash('message','flash 메시지');
   res.redirect('/users/flash/result');
