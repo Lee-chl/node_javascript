@@ -1,0 +1,20 @@
+//<h1>Express</h1>
+h1 = title
+//<p>Welcome to Express</p> #{}은 텍스트 중간에 변수를 넣을려면 사용
+p Welcome to #{title}
+//<button class="Express" type="submit">전송</button
+button(class=title, type="submit") 전송
+//<input placeholder="Express 연습" />
+input(placeholder=title + '연습')
+
+//내부에 직접 변수 선언 (-를 먼저 입력하면 뒤에 자바스크립트 구문을 작성할 수 있다. 여기서 변수를 사용하면 바로 다음줄부터 해당 변수를 사용할수 있다.)
+//<p>Node.js와 Javascript</p>
+- var node= 'Node.js'
+- var js = 'Javascript'
+p #{node}와 #{js}
+
+//Pug는 변수의 특수문자를 HTML 엔티티로 이스케이프 한다. 이스케이프를 원하지 않는다면 = 대신 !=를 사용
+//<p>&lt;strong&gt;이스케이프&lt;/strong&gt;</p>
+p= '<strong>이스케이프</strong>'
+//<p><strong>이스케이프하지 않음</strong></p>
+p!= '<strong>이스케이프 하지 않음 </strong>'
