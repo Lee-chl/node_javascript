@@ -1,0 +1,11 @@
+{
+  "name": "nodesnss",
+  "version": "0.0.1",
+  "description": "익스프레스로 만드는 SNS 서비스",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "LYJ",
+  "license": "MIT"
+}
