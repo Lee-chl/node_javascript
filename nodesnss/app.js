@@ -4,12 +4,12 @@ const morgan = require('morgan');
 const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
-require('dotenv').config();
+const dotenv = require('dotenv');
 
+dotenv.config();
 const pageRouter = require('./routes/page');
 
 const app = express();
-
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine','pug');
 app.set('port', process.env.PORT || 8001);
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
     saveUninitialized: false,
-    secret: 'process.env.COOKIE_SECRET',
+    secret: process.env.COOKIE_SECRET,
     cookie: {
         httpOnly: true,
         secure: false,
